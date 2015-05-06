@@ -1,0 +1,26 @@
+{
+    "name": "drupal-sauron/monitoring",
+    "type": "library",
+    "description": "Sauron base component",
+    "keywords": ["drupal", "drupal.org"],
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Alan Moreau"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/console": "2.*",
+        "symfony/config": "2.*",
+        "symfony/yaml": "2.*",
+        "symfony/dependency-injection": "2.*",
+        "drupal-sauron/drupal-release-history": "dev-master" ,
+        "drush/make-parser": "1.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Sauron\\": "src/"
+        }
+    }
+}

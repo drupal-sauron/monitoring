@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+
+<?php
+
+use Sauron\Core\Config\YamlLoader;
+use Sauron\SauronApplication;
+use Symfony\Component\Config\FileLocator;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+//Load sauron main config
+$configDirectories = array(__DIR__ . '/config');
+
+$locator = new FileLocator($configDirectories);
+$sauronConfig = new YamlLoader($locator);
+$sauronConfig->load('sauron.yml');
+
+//Launch application
+$app = new SauronApplication($sauronConfig, 'Sauron', '2.0');
+$app->run();
