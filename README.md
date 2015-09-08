@@ -19,3 +19,11 @@ HOW TO
 Get project update status?
 
     ./sauron project:update-status <project>
+
+Get project update status by email?
+
+    ./sauron project:update-status <project> --report=mail
+
+Checkout project before update status by email?
+
+    ./sauron project:update-status <project> --checkout --report=mail
