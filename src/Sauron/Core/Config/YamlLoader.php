@@ -48,6 +48,10 @@ class YamlLoader extends FileLoader implements ConfigLoader
             if (array_key_exists($keyPart, $param)) {
                 $value = $param[$keyPart];
             }
+            else {
+                $value = NULL;
+            }
+
             if (($i + 1) < $size) {
                 $param = $value;
             }

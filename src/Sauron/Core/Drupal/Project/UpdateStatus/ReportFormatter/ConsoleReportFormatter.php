@@ -18,9 +18,10 @@ class ConsoleReportFormatter
     /**
      * @var string styles use to colorize line according to the extension status
      */
-    CONST INFO_STYLE     = '<info>%s</info>';
-    CONST BUG_STYLE      = '<comment>%s</comment>';
-    CONST SECURITY_STYLE = '<error>%s</error>';
+    CONST UNSUPPORTED_STYLE = '<fg=white;bg=cyan>%s</fg=white;bg=cyan>';
+    CONST INFO_STYLE        = '<info>%s</info>';
+    CONST BUG_STYLE         = '<comment>%s</comment>';
+    CONST SECURITY_STYLE    = '<error>%s</error>';
 
     /**
      * Render the report
@@ -77,7 +78,10 @@ class ConsoleReportFormatter
         }
 
         $style = self::INFO_STYLE;
-        if ($updateStatusEntry['current_rank'] > 1
+        if ($updateStatusEntry['current_rank'] == 0) {
+            $style = self::UNSUPPORTED_STYLE;
+        }
+        else if ($updateStatusEntry['current_rank'] > 1
             && $updateStatusEntry['last_security_rank'] != 0
             && $updateStatusEntry['last_security_rank'] < $updateStatusEntry['current_rank']) {
             $style = self::SECURITY_STYLE;

@@ -87,7 +87,9 @@ class UpdateStatus
         $updateStatus['drupal'] = $this->getCoreStatus();
         foreach($modules as $module) {
             $moduleStatusInfo = $this->getModuleStatus($module);
-            $updateStatus['modules'][$module->machineName] = $moduleStatusInfo;
+            if (!empty($moduleStatusInfo)) {
+                $updateStatus['modules'][$module->machineName] = $moduleStatusInfo;
+            }
         }
 
         return $updateStatus;
@@ -122,15 +124,16 @@ class UpdateStatus
     {
         $statusInfo = array();
         $releases = $this->releaseHistoryClient->getReleases($module->machineName, $this->project->getCoreVersion());
+        if (isset($releases['title'])) {
+            $basicInfo = $this->extractBasicInfo($releases);
 
-        $basicInfo = $this->extractBasicInfo($releases);
+            $module->name = $releases['title'];
+            $module->type = $basicInfo['type'];
 
-        $module->name = $releases['title'];
-        $module->type = $basicInfo['type'];
-
-        $recommendedVersionMajor = $basicInfo['recommended_major'];
-        if (isset($releases['releases']) && !empty($releases['releases']['release'])) {
-            $statusInfo = $this->getStatusInfo($module->version, $recommendedVersionMajor, $releases['releases']['release']);
+            $recommendedVersionMajor = $basicInfo['recommended_major'];
+            if (isset($releases['releases']) && !empty($releases['releases']['release'])) {
+                $statusInfo = $this->getStatusInfo($module->version, $recommendedVersionMajor, $releases['releases']['release']);
+            }
         }
 
         return $statusInfo;

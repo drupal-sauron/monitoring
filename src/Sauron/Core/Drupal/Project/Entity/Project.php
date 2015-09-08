@@ -10,6 +10,11 @@ namespace Sauron\Core\Drupal\Project\Entity;
 class Project
 {
     /**
+     * @var string project name
+     */
+    public $name   = '';
+
+    /**
      * @var string drupal core version - short format 6.x, 7.x, etc.
      */
     public $coreVersion   = '';
@@ -35,6 +40,15 @@ class Project
      * @var array a list of libraries
      */
     public $libraries     = array();
+
+    /**
+     * Retrieves project name
+     * @return string project name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
     /**
      * Retrieves core version (short format)

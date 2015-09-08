@@ -14,9 +14,11 @@
         "symfony/console": "2.*",
         "symfony/config": "2.*",
         "symfony/yaml": "2.*",
+        "symfony/finder": "2.*",
         "symfony/dependency-injection": "2.*",
         "drupal-sauron/drupal-release-history": "dev-master" ,
-        "drush/make-parser": "1.*@dev"
+        "drush/make-parser": "1.*@dev",
+        "swiftmailer/swiftmailer": "5.*"
     },
     "autoload": {
         "psr-0": {

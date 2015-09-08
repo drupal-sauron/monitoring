@@ -1,6 +1,6 @@
 "project": "My project"
 
-"mail": ["<email>"]
+"mail": ["almor@smile.fr", "alan.moreau@smile.fr"]
 
 "vcs":
     "type": "git"
