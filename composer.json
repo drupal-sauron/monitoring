@@ -17,7 +17,7 @@
         "symfony/finder": "2.*",
         "symfony/dependency-injection": "2.*",
         "drupal-sauron/drupal-release-history": "dev-master" ,
-        "drush/make-parser": "1.*@dev",
+        "drush/make-parser": "v0.1.0",
         "swiftmailer/swiftmailer": "5.*"
     },
     "autoload": {
